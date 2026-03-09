@@ -1,0 +1,60 @@
+@mixin Clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin centerpos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// media query mannager
+
+// 0 - 600px:   phone
+
+// 600 - 900px:   tablet portrait
+
+// 900 - 1200px:   tablet landscape
+
+// 1200 - 1800px:   normal is where our normal style apply
+
+// 1800 -:   big desktop
+
+/*  
+$breakpoint arguement choice: 
+-- phone
+- tap-port
+-tap- land
+-big-desktop
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content; //  600px
+    }
+  }
+
+  @if $breakpoint == tap-port {
+    @media (max-width: 56.25em) {
+      @content; // 900px
+    }
+  }
+
+  @if $breakpoint == tap-land {
+    @media (max-width: 75em) {
+      @content; // 1200px
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content; // 1800px
+    }
+  }
+}
