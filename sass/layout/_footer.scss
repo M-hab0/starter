@@ -3,9 +3,17 @@
   padding: 10rem 0;
   font-size: 1.4rem;
 
+  @include respond(tap-port) {
+    padding: 8rem 0;
+  }
+
   &__logo-box {
     text-align: center;
     margin-bottom: 10rem;
+
+    @include respond(tap-port) {
+      margin-bottom: 4rem;
+    }
   }
   &__img {
     width: 15rem;
@@ -15,6 +23,11 @@
     display: inline-block;
     border-top: 2.5px solid $color-grey-dark-3;
     padding-top: 2rem;
+
+    @include respond(tap-port) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__list {
@@ -49,5 +62,10 @@
     padding-top: 2rem;
     float: right;
     width: 80%;
+
+    @include respond(tap-port) {
+      width: 100%;
+      float: none;
+    }
   }
 }

@@ -9,10 +9,12 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s;
+  backdrop-filter: blur(10px);
+  background-color: rgba($color-black, 0.3);
 
   &__content {
     width: 75%;
-    height: 50rem;
+    // height: 50rem;
     background-color: $color-whitt;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
     @include centerpos;
@@ -21,6 +23,9 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
     transition: all 0.4s 0.2s;
+    @include respond(tap-port) {
+      width: 100%;
+    }
   }
   &__content {
     display: table;
@@ -28,12 +33,19 @@
   &__left {
     width: 33.333333%;
     display: table-cell;
+    @include respond(tap-port) {
+      vertical-align: middle;
+      width: 44.44444447%;
+    }
   }
   &__right {
     width: 66.6666667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+    @include respond(tap-port) {
+      padding: 4rem 2rem;
+    }
   }
   &__img {
     width: 100%;
@@ -48,6 +60,9 @@
     column-rule: 2px solid $color-grey-ligh-2;
 
     hyphens: auto;
+    @include respond(tap-port) {
+      column-count: 1;
+    }
   }
   // open states
   &:target {
@@ -70,6 +85,10 @@
       text-decoration: none;
       display: inline-block;
       transition: all 0.4s;
+      @include respond(tap-port) {
+        top: 1rem;
+        right: 4rem;
+      }
     }
     &:hover,
     &:active {
